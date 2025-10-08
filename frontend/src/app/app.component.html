@@ -1,0 +1,25 @@
+<!-- <div style="max-width:400px;margin:40px auto;padding:20px;border:1px solid #ccc;border-radius:10px;">
+  <h2>Contact Form Test</h2>
+
+  <form (ngSubmit)="submitForm()" #f="ngForm">
+    <label>Name:</label>
+    <input type="text" [(ngModel)]="contact.name" name="name" required class="form-control" /><br>
+
+    <label>Email:</label>
+    <input type="email" [(ngModel)]="contact.email" name="email" required class="form-control" /><br>
+
+    <label>Contact Number:</label>
+    <input type="text" [(ngModel)]="contact.contact_number" name="contact_number" required class="form-control" /><br>
+
+    <label>Subject:</label>
+    <input type="text" [(ngModel)]="contact.subject" name="subject" required class="form-control" /><br>
+
+    <label>Message:</label>
+    <textarea [(ngModel)]="contact.message" name="message" rows="3" required class="form-control"></textarea><br>
+
+    <button type="submit" [disabled]="f.invalid">Send</button>
+  </form>
+</div> -->
+
+<app-header></app-header>
+<router-outlet></router-outlet>

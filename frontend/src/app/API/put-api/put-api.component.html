@@ -1,0 +1,68 @@
+<!-- User List -->
+<table class="table table-hover mt-5">
+  <thead>
+    <tr class="table-active">
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">Password</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (users of userLists; track $index) {
+    <tr>
+      <th scope="row">{{ users.id }}</th>
+      <td>{{ users.firstName }}</td>
+      <td>{{ users.lastName }}</td>
+      <td>{{ users.email }}</td>
+      <td>{{ users.address }}</td>
+      <td>{{ users.password }}</td>
+        <td>
+            <button class="btn btn-sm btn-warning me-2" (click)="editUser(users)">Update</button>
+        </td>
+    </tr>
+    }
+  </tbody>
+</table>
+
+<!-- Update Form -->
+<div *ngIf="selectedUserId" class="container mt-5 mb-5" style="max-width: 500px;">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h3 class="card-title text-center mb-4">Update User</h3>
+
+      <form (ngSubmit)="onUpdate(selectedUserId)" #contactForm="ngForm">
+
+        <div class="mb-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" id="firstName" name="firstName" [(ngModel)]="updateForm.firstName" class="form-control" placeholder="Enter your first name" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" id="lastName" name="lastName" [(ngModel)]="updateForm.lastName" class="form-control" placeholder="Enter your last name" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" id="email" name="email" [(ngModel)]="updateForm.email" class="form-control" placeholder="Enter your email" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" id="address" name="address" [(ngModel)]="updateForm.address" class="form-control" placeholder="Enter your address" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" [(ngModel)]="updateForm.password" class="form-control" placeholder="Enter your password" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
